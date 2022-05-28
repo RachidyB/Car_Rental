@@ -13,14 +13,14 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 #Customer API
 
-@cache_page(CACHE_TTL)
+
 @api_view(['GET'])
 def ShowAll(request):
     Reservations = Reservation.objects.all()
     serializer = ReservationSerializer(Reservations, many=True)
     return Response(serializer.data)
 
-@cache_page(CACHE_TTL)
+
 @api_view(['GET'])
 def ViewReservation(request, pk):
     Reservations = Customer.objects.get(id=pk)

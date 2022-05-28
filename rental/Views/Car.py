@@ -13,14 +13,14 @@ CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 #Car Api
 
-@cache_page(CACHE_TTL)
+
 @api_view(['GET'])
 def ShowAll(request):
     Cars = Car.objects.all()
     serializer = CarSerializer(Cars, many=True)
     return Response(serializer.data)
 
-@cache_page(CACHE_TTL)
+
 @api_view(['GET'])
 def ViewCar(request, pk):
     Cars= Car.objects.get(matricule=pk)
