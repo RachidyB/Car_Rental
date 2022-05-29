@@ -13,9 +13,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import django_heroku
 import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -27,7 +27,6 @@ SECRET_KEY = 'django-insecure-kyyzcqum@r&tdxl-lhyng0_+!9^(2m#ea&4qbb(y)$&2st6g2a
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'rental.apps.RentalConfig',
     'CarsRentals',
     'rest_framework',
+    'authentication'
 ]
 
 CACHES = {
@@ -54,7 +54,7 @@ CACHES = {
     }
 }
 
-CACHE_TTL = 60*5
+CACHE_TTL = 60 * 5
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,7 +87,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CarsRentals.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
@@ -100,7 +99,7 @@ DATABASES = {
 
         'USER': 'postgres',
 
-        'PASSWORD': '123456789',
+        'PASSWORD': '1996raja',
 
         'HOST': 'localhost',
 
@@ -126,7 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
@@ -137,7 +135,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
