@@ -40,8 +40,17 @@ INSTALLED_APPS = [
     'rental.apps.RentalConfig',
     'CarsRentals',
     'rest_framework',
-    'authentication'
+    'authentication',
+    'knox',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        # 'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.SessionAuthentication',
+        'knox.auth.TokenAuthentication',
+    ]
+}
 
 CACHES = {
     "default": {
