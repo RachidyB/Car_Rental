@@ -45,6 +45,7 @@ class UserAPI(generics.RetrieveAPIView):
     def get_object(self):
         return self.request.user
 
+
 # Change Password
 class ChangePasswordView(generics.UpdateAPIView):
     """

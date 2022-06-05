@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
     'knox',
+    'django_rest_passwordreset',
 ]
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
