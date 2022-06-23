@@ -11,7 +11,7 @@ from rest_framework.response import Response
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
-#Car Api
+# Car Api
 
 
 @api_view(['GET'])
@@ -23,7 +23,7 @@ def ShowAll(request):
 
 @api_view(['GET'])
 def ViewCar(request, pk):
-    Cars= Car.objects.get(matricule=pk)
+    Cars = Car.objects.get(matricule=pk)
     serializer = CarSerializer(Cars, many=False)
     return Response(serializer.data)
 
@@ -54,7 +54,3 @@ def deleteCar(request, pk):
     Cars.delete()
 
     return Response('Items delete successfully!')
-
-
-
-
