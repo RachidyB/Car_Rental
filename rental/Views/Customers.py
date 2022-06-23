@@ -11,7 +11,7 @@ from rest_framework.response import Response
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
-#Customer API
+# Customer API
 
 @api_view(['GET'])
 def ShowAll(request):
@@ -22,7 +22,14 @@ def ShowAll(request):
 
 @api_view(['GET'])
 def ViewCustomer(request, pk):
-    Customers= Customer.objects.get(id=pk)
+    Customers = Customer.objects.get(id=pk)
+    serializer = CustomerSerializer(Customers, many=False)
+    return Response(serializer.data)
+
+
+@api_view(['GET'])
+def ViewCustomer(request, email):
+    Customers = Customer.objects.get(email=email)
     serializer = CustomerSerializer(Customers, many=False)
     return Response(serializer.data)
 
@@ -53,7 +60,3 @@ def deleteCustomer(request, pk):
     Customers.delete()
 
     return Response('Items delete successfully!')
-
-
-
-
