@@ -54,8 +54,14 @@ REST_FRAMEWORK = {
         # 'rest_framework.authentication.BasicAuthentication',
         # 'rest_framework.authentication.SessionAuthentication',
         'knox.auth.TokenAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permission.AllowAny'
     ]
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 CACHES = {
     "default": {
