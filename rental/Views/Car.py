@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rental.Views import Car
 from rental.serializers import *
 
-CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
+#CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
 # Car Api
