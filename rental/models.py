@@ -3,7 +3,7 @@ from django.db import models
 
 
 class Customer(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     nom = models.CharField(max_length=255)
     prenom = models.CharField(max_length=255)
     dateN = models.DateField
@@ -29,7 +29,7 @@ class Car(models.Model):
 
 
 class Reservation(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     issue_date = models.DateField()
