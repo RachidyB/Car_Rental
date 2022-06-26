@@ -7,7 +7,7 @@ router.register(r'', Car.CarViewSet)
 
 urlpatterns = [
     # Customer
-    #path('Customer-list/', Customers.ShowAll, name='Customer-list'),
+    path('Customer-list/', Customers.ShowAll, name='Customer-list'),
     path('Car-list/', include(router.urls)),
     path('Customer-list-by-id/<int:pk>/', Customers.ViewCustomer, name='Customer-list-by-id'),
     path('Customer-list-by-email/<email>/', Customers.ViewCustomer, name='Customer-list-by-email'),
@@ -15,7 +15,8 @@ urlpatterns = [
     path('Customer-update/<pk>/', Customers.updateCustomer, name='Customer-update'),
     path('Customer-delete/<pk>', Customers.deleteCustomer, name='Customer-delete'),
     # Car
-    path('Car-list/', Car.ShowAll, name='Car-list'),
+    #path('Car-list/', Car.ShowAll, name='Car-list'),
+    path('Car-list/', include(router.urls)),
     path('Car-list-by-id/<int:pk>/', Car.ViewCar, name='Car-list-by-id'),
     path('Car-create/', Car.CreateCars, name='Car-create'),
     path('Car-update/<pk>/', Car.updateCars, name='Car-update'),
