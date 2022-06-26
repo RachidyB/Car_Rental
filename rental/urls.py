@@ -1,5 +1,9 @@
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
 from .Views import Customers, Car, Reservation
+
+router = routers.DefaultRouter()
+router.register(r'', Car.CarViewSet)
 
 urlpatterns = [
     # Customer
@@ -9,12 +13,15 @@ urlpatterns = [
     path('Customer-create/', Customers.CreateCustomer, name='Customer-create'),
     path('Customer-update/<pk>/', Customers.updateCustomer, name='Customer-update'),
     path('Customer-delete/<pk>', Customers.deleteCustomer, name='Customer-delete'),
+
     # Car
-    path('Car-list/', Car.ShowAll, name='Car-list'),
+    # path('Car-list/', Car.ShowAll, name='Car-list'),
     path('Car-list-by-id/<int:pk>/', Car.ViewCar, name='Car-list-by-id'),
     path('Car-create/', Car.CreateCars, name='Car-create'),
     path('Car-update/<pk>/', Car.updateCars, name='Car-update'),
     path('Car-delete/<pk>', Car.deleteCar, name='Car-delete'),
+    path('Car-list/', include(router.urls)),
+
     # Reservation
     path('Reservation-list/', Reservation.ShowAll, name='Reservation-list'),
     path('Reservation-list-by-id/<int:pk>/', Reservation.ViewReservation, name='Reservation-list-by-id'),
