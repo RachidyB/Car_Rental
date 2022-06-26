@@ -21,7 +21,6 @@ class Car(models.Model):
     Serie = models.CharField(max_length=50)
     annee= models.IntegerField()
     prix_journaliser = models.FloatField()
-    rent_per_day = models.IntegerField()
     availability = models.BooleanField(null=True)
     image = models.ImageField(upload_to='image',null=True)
 
