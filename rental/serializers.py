@@ -8,10 +8,12 @@ class CustomerSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class CarSerializer(serializers.ModelSerializer):
+class CarSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Car
         fields = '__all__'
+    image = serializers.ImageField(max_length=None, allow_empty_file=False, allow_null=False, use_url=True,
+                                   required=False)
 
 
 class ReservationSerializer(serializers.ModelSerializer):
